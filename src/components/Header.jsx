@@ -16,9 +16,15 @@ const Header = () => {
       </Link>
       <Spacer />
       <ButtonGroup variant='ghost' colorScheme='gray'>
-        <Button size='sm'>Invoices</Button>
-        <Button size='sm'>Validators</Button>
-        <Button size='sm'>Profile</Button>
+        <Link href='/Invoices'>
+          <Button size='sm'>Invoices</Button>
+        </Link>
+        <Link href='/Validators'>
+          <Button size='sm'>Validators</Button>
+        </Link>
+        <Link href='/Profiles'>
+          <Button size='sm'>Profile</Button>
+        </Link>
         <CustomConnectButton />
       </ButtonGroup>
     </header>
