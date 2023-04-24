@@ -14,6 +14,7 @@ import {
   Select,
   NumberInput,
   NumberInputField,
+  Divider,
 } from "@chakra-ui/react";
 
 const ValidatorForm = () => {
