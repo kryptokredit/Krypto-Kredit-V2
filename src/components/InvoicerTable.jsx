@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react'
 
 
-const InvoicerInvoiceList = () => {
+const InvoicerTable = () => {
     return(
       <>
          <div>
@@ -23,8 +23,8 @@ const InvoicerInvoiceList = () => {
       <Tr>
         <Th>ID</Th>
         <Th>Account</Th>
-        <Th>Amount</Th>
-        <Th isNumeric>Due Date</Th>
+        <Th >Amount</Th>
+        <Th>Due Date</Th>
         <Th>Status</Th>
       </Tr>
     </Thead>
@@ -32,21 +32,21 @@ const InvoicerInvoiceList = () => {
       <Tr>
         <Td>1</Td>
         <Td>0X2356ab4653r</Td>
-        <Td isNumeric>25.4</Td>
+        <Td>25.4</Td>
         <Td>2/26/2030</Td>
         <Td>Paid</Td>
       </Tr>
       <Tr>
         <Td>2</Td>
         <Td>0X2356ab4653r</Td>
-        <Td isNumeric>30.48</Td>
+        <Td>30.48</Td>
         <Td>2/26/2030</Td>
         <Td>Unpaid</Td>
       </Tr>
       <Tr>
         <Td>3</Td>
         <Td>0X2356ab4653r</Td>
-        <Td isNumeric>0.91444</Td>
+        <Td>0.91444</Td>
         <Td>2/26/2030</Td>
         <Td>Unpaid</Td>
       </Tr>
@@ -59,4 +59,4 @@ const InvoicerInvoiceList = () => {
     )
 }
 
-export default InvoicerInvoiceList;
+export default InvoicerTable;

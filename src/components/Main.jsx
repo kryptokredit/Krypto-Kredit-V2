@@ -1,7 +1,7 @@
 import styles from "@/styles/Main.module.css";
 import { Button, Text, HStack, Grid, GridItem, Flex, Box } from "@chakra-ui/react";
-import InvoicerInvoiceList from "./InvoicerInvoiceList";
-import InvoiceTabs from "./InvoiceTabs";
+
+
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 const Main = () => {
   return (
@@ -63,7 +63,6 @@ const Main = () => {
       </div>
     
 
-<InvoiceTabs />
      
     </>
   );
