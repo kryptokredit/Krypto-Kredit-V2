@@ -1,5 +1,4 @@
 import styles from "@/styles/Header.module.css";
-
 import { Box, Button, ButtonGroup, HStack, Link, Spacer, Stack, Text } from "@chakra-ui/react";
 import { CustomConnectButton } from "./CustomConnectButton";
 
@@ -16,11 +15,18 @@ const Header = () => {
       </Link>
       <Spacer />
       <ButtonGroup variant='ghost' colorScheme='gray'>
-        <Button size='sm'>Invoices</Button>
-        <Button size='sm'>Validators</Button>
+  
+      <Button size='sm'>Invoices</Button>
+
+       
+        <Button  size='sm'>Validators</Button>
+
         <Button size='sm'>Profile</Button>
-        <CustomConnectButton />
+        
+      <CustomConnectButton />
       </ButtonGroup>
+  
+    
     </header>
   );
 };
