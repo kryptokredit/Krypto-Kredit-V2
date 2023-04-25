@@ -1,73 +1,54 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Input,
-  Text,
-  HStack,
-  Flex,
-  Box,
-  Textarea,
-  Button,
-  Heading,
-  Select,
-  NumberInput,
-  NumberInputField,
-} from "@chakra-ui/react";
+import InvoicerTableAll from '@/components/InvoicerTableAll'
+import { Tabs, TabList, TabPanels, Tab, TabPanel, Box, Card, CardHeader, Heading, Button, Link, Flex, Spacer } from '@chakra-ui/react'
 
-const InvoiceForm = () => {
-  return (
-    <div className='container'>
-      <Card margin={10} maxWidth={800} variant='elevated'>
-        <CardHeader justifyContent='center'>
-          <Heading size='md' textAlign='center'>
-            Create an Invoice
+
+const InvoiceTabs = () => {
+    return(
+  <div className='container'>
+     <Card margin={10} maxWidth={1000} variant='unstyled'>
+        <CardHeader justifyContent='center'></CardHeader>
+<Heading size='md' textAlign='center'>
+            My Invoices
           </Heading>
-        </CardHeader>
-        <CardBody>
-          <Flex flexWrap='wrap'>
-            <Box flex='1 1 100%' mb='10px'>
-              <Text mb='8px'>Amount:</Text>
-              <HStack>
-                <Select placeholder='USDC'>
-                  <option value='ETH'>ETH</option>
-                </Select>
-                <Input ml='2' placeholder='Amount' />
-              </HStack>
-            </Box>
-            <Box flex='1 1 50%'>
-              <Text mb='8px'>Due Date:</Text>
-              <Input placeholder='Select Date and Time' size='md' type='date' />
-            </Box>
-            <Box flex='1 1 50%' mb='10px'>
-              <Text mb='8px'>Late Fee:</Text>
-              <NumberInput step={0.01}>
-                <NumberInputField placeholder='Late Fee' />
-              </NumberInput>
-            </Box>
-            <Box flex='1 1 50%' mb='10px'>
-              <Text mb='8px'>Payer Address:</Text>
-              <Input placeholder='0x...' />
-            </Box>
-            <Box flex='1 1 50%' mb='10px'>
-              <Text mb='8px'>Validator Address:</Text>
-              <Input placeholder='0x...' />
-            </Box>
-            <Box flex='1 1 50%' mb='10px'>
-              <Text mb='8px'>Description of Service:</Text>
-              <Textarea placeholder='Here is a sample placeholder' />
-            </Box>
-          </Flex>
-        </CardBody>
-        <CardFooter justifyContent='center'>
-          <Button colorScheme='whatsapp' variant='solid' justifyContent='center'>
-            Submit
-          </Button>
-        </CardFooter>
-      </Card>
-    </div>
-  );
-};
+         
+        
+<Tabs mt={7} width={1000} variant='enclosed'>
+  <TabList >
+    <Tab>Unpaid</Tab>
+    <Tab>Paid</Tab>
+    <Tab>Outstanding</Tab>
+    <Tab>All</Tab>
+      <Spacer />
+      <Link  href='/Invoices/InvoiceForm'>
+    <Button mb={1} size='md' colorScheme='whatsapp' variant='solid'>+ Create an Invoice</Button>
+    </Link>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+    <InvoicerTableAll />
+    </TabPanel>
+    <TabPanel>
+<InvoicerTableAll />
+    </TabPanel>
+    <TabPanel>
+<InvoicerTableAll />
+    </TabPanel>
+    <TabPanel>
+<InvoicerTableAll />
+    </TabPanel>
+  </TabPanels>
+</Tabs>
+</Card>
+      </div>
 
-export default InvoiceForm;
+
+
+
+ 
+
+    )
+
+
+}
+
+export default InvoiceTabs

@@ -1,6 +1,8 @@
 import styles from "@/styles/Main.module.css";
 import { Button, Text, HStack, Grid, GridItem, Flex, Box } from "@chakra-ui/react";
 
+
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 const Main = () => {
   return (
     <>
@@ -50,7 +52,7 @@ const Main = () => {
           <Box flex='1 1 40%' p={4} style={{ border: "1px solid gray" }} borderRadius='lg'>
             <Text as='b'>Become a Validator</Text>
             <Text>Get rewarded by joining our validator network and confirming cash transactions</Text>
-            <Button>Go somewhere</Button>
+            <Button color='whatsapp'>Go somewhere</Button>
           </Box>
           <Box flex='1 1 40%' p={4} style={{ border: "1px solid gray" }} borderRadius='lg'>
             <Text as='b'>Join KredDao</Text>
@@ -59,6 +61,9 @@ const Main = () => {
           </Box>
         </Flex>
       </div>
+    
+
+     
     </>
   );
 };

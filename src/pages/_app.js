@@ -15,16 +15,21 @@ const client = createClient(
   })
 );
 
+   
+
 export default function App({ Component, pageProps }) {
   return (
+    
     <ChakraProvider>
-      <WagmiConfig client={client}>
-        <ConnectKitProvider theme='auto' mode='light' debugMode>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ConnectKitProvider>
-      </WagmiConfig>
-    </ChakraProvider>
+    <WagmiConfig client={client}>
+      <ConnectKitProvider theme='auto' mode='light' debugMode>
+       <Layout>
+       <Component {...pageProps} />
+       </Layout>
+      
+       
+      </ConnectKitProvider>
+    </WagmiConfig>
+  </ChakraProvider>
   );
 }
