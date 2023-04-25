@@ -21,7 +21,7 @@ const Header = () => {
           <span class='bar'></span>
         </Link>
         <ButtonGroup variant='ghost' colorScheme='gray'>
-          <Link className='navbarLinks' href='/Invoices/InvoiceTabs'>
+          <Link className='navbarLinks' href='/Invoices'>
             <Button size='sm'>Invoices</Button>
           </Link>
           <Link className='navbarLinks' href='/Validators'>
