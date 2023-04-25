@@ -1,5 +1,5 @@
-import InvoicerTable from '@/components/InvoicerTable'
-import { Tabs, TabList, TabPanels, Tab, TabPanel, Box, Card, CardHeader, Heading, Button, Link } from '@chakra-ui/react'
+import InvoicerTableAll from '@/components/InvoicerTableAll'
+import { Tabs, TabList, TabPanels, Tab, TabPanel, Box, Card, CardHeader, Heading, Button, Link, Flex, Spacer } from '@chakra-ui/react'
 
 
 const InvoiceTabs = () => {
@@ -10,33 +10,31 @@ const InvoiceTabs = () => {
 <Heading size='md' textAlign='center'>
             My Invoices
           </Heading>
-          <div justify='end'>
-          <Link  href='/Invoices/InvoiceForm'> <Button size='md' width={170} colorScheme='whatsapp' variant='solid' justifyContent='center'>
-           + Create an Invoice
-          </Button></Link>
-          </div>
-          
          
         
-<Tabs mt={10} width={1000} variant='enclosed'>
+<Tabs mt={7} width={1000} variant='enclosed'>
   <TabList >
     <Tab>Unpaid</Tab>
     <Tab>Paid</Tab>
     <Tab>Outstanding</Tab>
     <Tab>All</Tab>
+      <Spacer />
+      <Link  href='/Invoices/InvoiceForm'>
+    <Button mb={1} size='md' colorScheme='whatsapp' variant='solid'>+ Create an Invoice</Button>
+    </Link>
   </TabList>
   <TabPanels>
     <TabPanel>
-    <InvoicerTable />
+    <InvoicerTableAll />
     </TabPanel>
     <TabPanel>
-<InvoicerTable />
+<InvoicerTableAll />
     </TabPanel>
     <TabPanel>
-<InvoicerTable />
+<InvoicerTableAll />
     </TabPanel>
     <TabPanel>
-<InvoicerTable />
+<InvoicerTableAll />
     </TabPanel>
   </TabPanels>
 </Tabs>

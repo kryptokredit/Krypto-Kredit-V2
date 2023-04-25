@@ -8,10 +8,11 @@ import {
   Td,
   TableCaption,
   TableContainer,
+  Button
 } from '@chakra-ui/react'
 
 
-const InvoicerTable = () => {
+const InvoicerTableAll = () => {
     return(
       <>
          <div>
@@ -34,7 +35,7 @@ const InvoicerTable = () => {
         <Td>0X2356ab4653r</Td>
         <Td>25.4</Td>
         <Td>2/26/2030</Td>
-        <Td>Paid</Td>
+        <Td><Button size='sm' bgColor='#11a3ee'>Sign</Button></Td>
       </Tr>
       <Tr>
         <Td>2</Td>
@@ -59,4 +60,4 @@ const InvoicerTable = () => {
     )
 }
 
-export default InvoicerTable;
+export default InvoicerTableAll;
