@@ -16,9 +16,9 @@ const Header = () => {
       </div>
       <div className={styles.menu}>
         <Link href='#' className='toggleButton'>
-          <span class='bar'></span>
-          <span class='bar'></span>
-          <span class='bar'></span>
+          <span className='bar'></span>
+          <span className='bar'></span>
+          <span className='bar'></span>
         </Link>
         <ButtonGroup variant='ghost' colorScheme='gray'>
           <Link className='navbarLinks' href='/Invoices'>
@@ -33,7 +33,7 @@ const Header = () => {
           <Link className='navbarLinks' href='/Rolodex'>
             <Button size='sm'>Rolodex</Button>
           </Link>
-          <CustomConnectButton className={styles.menu_item} />
+          <CustomConnectButton />
         </ButtonGroup>
       </div>
     </header>

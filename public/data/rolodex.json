@@ -1,0 +1,12 @@
+[
+  { "name": "Albert", "address": "0x2dE93f9033Bb6f73d42C93f6791AAbB60EA8C0E7", "type": "vendor" },
+  { "name": "Bill", "address": "0x1cE93f9033Bb6f73d42C93f6791AAbB60EA8C0E7", "type": "customer" },
+  { "name": "Tom", "address": "0xAeE93f9033Bb6f73d42C93f6791AAbB60EA8C0E7", "type": "vendor" },
+  { "name": "Sarah", "address": "0x8b4F4B283Ec4E97D55eBcDa8C0e9A566c09d41A4", "type": "customer" },
+  { "name": "John", "address": "0x3A3c7C56EC44aB3DdE0C83A8C7205FaDEA5d7D2A", "type": "vendor" },
+  { "name": "Lisa", "address": "0xb3c3a73dc6b25101c41ee18f31f04c8fa878ca9e", "type": "customer" },
+  { "name": "Alex", "address": "0x1dF7e6bF22C161DdF0c0a8e65115D20cDDd82826", "type": "vendor" },
+  { "name": "Emily", "address": "0x1234567890123456789012345678901234567890", "type": "customer" },
+  { "name": "David", "address": "0x9876543210987654321098765432109876543210", "type": "vendor" },
+  { "name": "Sophie", "address": "0xF3E3D7cdeBddFeD32d75c12C13d77dFa0470fC30", "type": "customer" }
+]
