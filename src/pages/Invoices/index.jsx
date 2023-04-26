@@ -1,4 +1,3 @@
-import InvoicerTableAll from "@/components/InvoicerTableAll";
 import {
   Tabs,
   TabList,
@@ -14,8 +13,12 @@ import {
   Flex,
   Spacer,
 } from "@chakra-ui/react";
+import useInvoiceList from "@/hooks/useInvoiceList";
+import InvoicerTable from "@/components/InvoicerTable";
 
 const InvoiceTabs = () => {
+  const { data, loading, error } = useInvoiceList();
+
   return (
     <div className='container'>
       <Card margin={10} maxWidth={1000} variant='unstyled'>
@@ -25,10 +28,10 @@ const InvoiceTabs = () => {
         </Heading>
         <Tabs mt={7} width={1000} variant='enclosed'>
           <TabList>
-            <Tab>Unpaid</Tab>
+            <Tab>All</Tab>
+            <Tab>Unsigned</Tab>
             <Tab>Paid</Tab>
             <Tab>Outstanding</Tab>
-            <Tab>All</Tab>
             <Spacer />
             <Link href='/Invoices/InvoiceForm'>
               <Button mb={1} size='md' colorScheme='whatsapp' variant='solid'>
@@ -37,18 +40,10 @@ const InvoiceTabs = () => {
             </Link>
           </TabList>
           <TabPanels>
-            <TabPanel>
-              <InvoicerTableAll />
-            </TabPanel>
-            <TabPanel>
-              <InvoicerTableAll />
-            </TabPanel>
-            <TabPanel>
-              <InvoicerTableAll />
-            </TabPanel>
-            <TabPanel>
-              <InvoicerTableAll />
-            </TabPanel>
+            <TabPanel>{loading ? <div>Loading...</div> : <InvoicerTable InvoiceJson={data} />}</TabPanel>
+            <TabPanel></TabPanel>
+            <TabPanel>{/* <InvoicerTable InvoiceJson={data} /> */}</TabPanel>
+            <TabPanel>{/* <InvoicerTable InvoiceJson={data} /> */}</TabPanel>
           </TabPanels>
         </Tabs>
       </Card>
