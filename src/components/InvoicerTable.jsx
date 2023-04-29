@@ -15,6 +15,7 @@ const InvoicerTable = ({ InvoiceJson }) => {
                 <Th>Created Date</Th>
                 <Th>Due Date</Th>
                 <Th>Status</Th>
+                <Th>Action</Th>
               </Tr>
             </Thead>
             <Tbody>
@@ -27,6 +28,7 @@ const InvoicerTable = ({ InvoiceJson }) => {
                   <Td>{invoice.amount}</Td>
                   <Td>{invoice.createdDateMod}</Td>
                   <Td>{invoice.dueDateMod}</Td>
+                  <Td>{invoice.status}</Td>
                   <Td>
                     {1 ? (
                       <Button size='sm' bgColor='#11a3ee'>
