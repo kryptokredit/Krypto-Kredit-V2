@@ -12,6 +12,7 @@ const ValidatorTable = ({ ValidatorJson }) => {
               <Tr>
                 <Th>ID</Th>
                 <Th>Account</Th>
+                <Th>Location</Th>
               </Tr>
             </Thead>
             <Tbody>
@@ -22,6 +23,7 @@ const ValidatorTable = ({ ValidatorJson }) => {
                     validator.account.length - 4
                   )}`}</Td> */}
                   <Td>{validator.account}</Td>
+                  <Td>Accra, Ghana</Td>
                 </Tr>
               ))}
             </Tbody>
