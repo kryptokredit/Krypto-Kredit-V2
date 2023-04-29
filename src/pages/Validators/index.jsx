@@ -1,55 +1,49 @@
 import {
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+  Box,
   Card,
   CardHeader,
-  CardBody,
-  CardFooter,
-  Input,
-  Text,
-  HStack,
-  Flex,
-  Box,
-  Textarea,
-  Button,
   Heading,
-  Select,
-  NumberInput,
-  NumberInputField,
-  Divider,
+  Button,
+  Link,
+  Flex,
+  Spacer,
 } from "@chakra-ui/react";
+import useValidatorList from "@/hooks/useValidatorList";
+import ValidatorTable from "@/components/ValidatorTable";
 
-const ValidatorForm = () => {
+const ValidatorTabs = () => {
+  const { data, loading, error } = useValidatorList();
+  console.log(data);
+
   return (
     <div className='container'>
-      <Card margin={10} maxWidth={800}>
-        <CardHeader justifyContent='center'>
-          <Heading size='md' textAlign='center'>
-            Validator Application
-          </Heading>
-        </CardHeader>
-        <CardBody>
-          <Flex flexWrap='wrap'>
-            <Box flex='1 1 100%' mb='10px'>
-              <Text mb='8px'>Address:</Text>
-              <Input placeholder='0x...' size='md' />
-            </Box>
-            <Box flex='1 1 100%' mb='10px'>
-              <Text mb='8px'>Location:</Text>
-              <Input placeholder='Accra, Ghana' size='md' />
-            </Box>
-            <Box flex='1 1 100%' mb='10px'>
-              <Text mb='8px'>Description of Service:</Text>
-              <Textarea placeholder='Here is a sample placeholder' />
-            </Box>
-          </Flex>
-        </CardBody>
-        <CardFooter justifyContent='center'>
-          <Button colorScheme='whatsapp' variant='solid' justifyContent='center'>
-            Submit
-          </Button>
-        </CardFooter>
+      <Card margin={10} maxWidth={1000} variant='unstyled'>
+        <CardHeader justifyContent='center'></CardHeader>
+        <Heading size='md' textAlign='center'>
+          Validator List
+        </Heading>
+        <Tabs mt={7} width={1000} variant='enclosed'>
+          <TabList>
+            <Tab>All</Tab>
+            <Spacer />
+            <Link href='/Validators/ValidatorForm'>
+              <Button mb={1} size='md' colorScheme='whatsapp' variant='solid'>
+                + Validator Form
+              </Button>
+            </Link>
+          </TabList>
+          <TabPanels>
+            <TabPanel>{loading ? <div>Loading...</div> : <ValidatorTable ValidatorJson={data} />}</TabPanel>
+          </TabPanels>
+        </Tabs>
       </Card>
     </div>
   );
 };
 
-export default ValidatorForm;
+export default ValidatorTabs;
