@@ -44,9 +44,10 @@ export default function useInvoiceList() {
             const timestampCreateDate = await getBlockTimestamp(Number(formattedCreateDate));
             const timestampDueDate = await getBlockTimestamp(Number(formattedDueDate));
 
-            const dueDateModString = new Date(timestampCreateDate);
-            const today = new Date();
-            const status = dueDateModString < today ? "Late" : "Unpaid";
+            const dueDate = new Date(timestampDueDate);
+            const today = new Date("2023-03-10");
+
+            const status = dueDate < today ? "Late" : "Unpaid";
 
             const new_object = {
               ...invoice,
