@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
+import getBlockTimestamp from "@/lib/web3_functions";
 
 const provider = new ethers.providers.JsonRpcProvider(
   "https://mainnet.infura.io/v3/" + process.env.NEXT_PUBLIC_INFURA_API_KEY
@@ -9,14 +10,6 @@ export default function useInvoiceList() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  async function getBlockTimestamp(blockNumber) {
-    const block = await provider.getBlock(blockNumber);
-    const timestamp = new Date(block.timestamp * 1000);
-    const formattedDate = timestamp.toISOString().slice(0, 19).replace("T", " ");
-
-    return formattedDate;
-  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,7 +43,18 @@ export default function useInvoiceList() {
             const formattedDueDate = invoice.dueDate.substring(0, 8);
             const timestampCreateDate = await getBlockTimestamp(Number(formattedCreateDate));
             const timestampDueDate = await getBlockTimestamp(Number(formattedDueDate));
-            const new_object = { ...invoice, createdDateMod: timestampCreateDate, dueDateMod: timestampDueDate };
+
+            const dueDate = new Date(timestampDueDate);
+            const today = new Date("2023-03-10");
+
+            const status = dueDate < today ? "Late" : "Unpaid";
+
+            const new_object = {
+              ...invoice,
+              createdDateMod: timestampCreateDate,
+              dueDateMod: timestampDueDate,
+              status: status,
+            };
             return new_object;
           })
         );

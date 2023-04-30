@@ -31,8 +31,9 @@ const InvoiceTabs = () => {
           <TabList>
             <Tab>All</Tab>
             <Tab>Unsigned</Tab>
+            <Tab>Unpaid</Tab>
+            <Tab>Late</Tab>
             <Tab>Paid</Tab>
-            <Tab>Outstanding</Tab>
             <Spacer />
             <Link href='/Invoices/InvoiceForm'>
               <Button mb={1} size='md' colorScheme='whatsapp' variant='solid'>
@@ -42,8 +43,21 @@ const InvoiceTabs = () => {
           </TabList>
           <TabPanels>
             <TabPanel>{loading ? <div>Loading...</div> : <InvoicerTable InvoiceJson={data} />}</TabPanel>
-            <TabPanel></TabPanel>
             <TabPanel>{/* <InvoicerTable InvoiceJson={data} /> */}</TabPanel>
+            <TabPanel>
+              {loading ? (
+                <div>Loading...</div>
+              ) : (
+                <InvoicerTable InvoiceJson={data.filter((invoice) => invoice.status === "Unpaid")} />
+              )}
+            </TabPanel>
+            <TabPanel>
+              {loading ? (
+                <div>Loading...</div>
+              ) : (
+                <InvoicerTable InvoiceJson={data.filter((invoice) => invoice.status === "Late")} />
+              )}
+            </TabPanel>
             <TabPanel>{/* <InvoicerTable InvoiceJson={data} /> */}</TabPanel>
           </TabPanels>
         </Tabs>
