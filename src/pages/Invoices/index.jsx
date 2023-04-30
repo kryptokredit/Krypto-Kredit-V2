@@ -20,8 +20,7 @@ const InvoiceTabs = () => {
   const { data, loading, error } = useInvoiceList();
 
   return (
-    <Box mt={7} width={1000}  maxW={{base: '100%', md: '1000px'}} overflowX='auto'>
-<div className='container'>
+    <div className='container'>
       <Card margin={10} maxWidth={1000} variant='unstyled'>
         <CardHeader justifyContent='center'></CardHeader>
         <Heading size='md' textAlign='center'>
@@ -45,26 +44,25 @@ const InvoiceTabs = () => {
             <TabPanel>{loading ? <div>Loading...</div> : <InvoicerTable InvoiceJson={data} />}</TabPanel>
             <TabPanel>{/* <InvoicerTable InvoiceJson={data} /> */}</TabPanel>
             <TabPanel>
-              {loading ? (
-                <div>Loading...</div>
-              ) : (
-                <InvoicerTable InvoiceJson={data.filter((invoice) => invoice.status === "Unpaid")} />
-              )}
-            </TabPanel>
-            <TabPanel>
-              {loading ? (
-                <div>Loading...</div>
-              ) : (
-                <InvoicerTable InvoiceJson={data.filter((invoice) => invoice.status === "Late")} />
-              )}
-            </TabPanel>
+  {loading || !data ? (
+    <div>Loading...</div>
+  ) : (
+    <InvoicerTable InvoiceJson={data.filter((invoice) => invoice.status === "Unpaid")} />
+  )}
+</TabPanel>
+<TabPanel>
+  {loading || !data ? (
+    <div>Loading...</div>
+  ) : (
+    <InvoicerTable InvoiceJson={data.filter((invoice) => invoice.status === "Late")} />
+  )}
+</TabPanel>
+
             <TabPanel>{/* <InvoicerTable InvoiceJson={data} /> */}</TabPanel>
           </TabPanels>
         </Tabs>
       </Card>
     </div>
-    </Box>
-    
   );
 };
 
