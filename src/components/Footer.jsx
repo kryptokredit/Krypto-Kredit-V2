@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <>
-      <h1>Krypto Kredit Initiative</h1>
+      <h1 text-align='center'>Krypto Kredit Initiative</h1>
     </>
   );
 };

@@ -1,6 +1,6 @@
 import styles from "@/styles/Main.module.css";
-import { Button, Text, HStack, Grid, GridItem, Flex, Box } from "@chakra-ui/react";
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import { Button, Text, HStack, Grid, GridItem, Flex, Box, Link } from "@chakra-ui/react";
+
 
 const Main = () => {
   return (
@@ -40,33 +40,37 @@ const Main = () => {
   </Flex>
 </div>
 
-      <div className={styles.bottom} style={{ padding: '30px' }}>
-      <Flex flexWrap='wrap' style={{ gap: "10px" }}>
+<div className={styles.bottom} style={{ padding: '30px' }}>
+  <Flex flexWrap='wrap' style={{ gap: "20px" }}>
     <Box flex={['0 0 100%', '1 1 40%']} p={4} style={{ border: "1px solid gray" }} borderRadius='lg'>
-      <Text as='b'>Build On-Chain Credit</Text>
-      <Text>
+      <Text as='b' mb={2}>Build On-Chain Credit</Text>
+      <Text mb={4}>
         Using NFT invoices recorded on the blockchain, our system provides a secure and transparent approach to
         credit-building.
       </Text>
-      <Button>Go somewhere</Button>
+      <Button bgColor='#11a3ee' color='white'  >Learn More</Button>
     </Box>
     <Box flex={['0 0 100%', '1 1 40%']} p={4} style={{ border: "1px solid gray" }} borderRadius='lg'>
-      <Text as='b'>Create Invoices</Text>
-      <Text>Start creating invoices to generate credit history on chain</Text>
-      <Button>Go somewhere</Button>
+      <Text as='b' mb={2}>Create Invoices</Text>
+      <Text mb={4}>Start creating invoices to generate credit history on chain</Text>
+      <Link href='/Invoices/InvoiceForm'>
+      <Button colorScheme='whatsapp' >Get Started</Button>
+      </Link>
+     
     </Box>
     <Box flex={['0 0 100%', '1 1 40%']} p={4} style={{ border: "1px solid gray" }} borderRadius='lg'>
-      <Text as='b'>Become a Validator</Text>
-      <Text>Get rewarded by joining our validator network and confirming cash transactions</Text>
-      <Button color='whatsapp'>Go somewhere</Button>
+      <Text as='b' mb={2}>Become a Validator</Text>
+      <Text mb={4}>Get rewarded by joining our validator network and confirming cash transactions</Text>
+      <Button colorScheme='whatsapp'>Get Started</Button>
     </Box>
     <Box flex={['0 0 100%', '1 1 40%']} p={4} style={{ border: "1px solid gray" }} borderRadius='lg'>
-      <Text as='b'>Join KredDao</Text>
-      <Text>Oversee our validator network</Text>
-      <Button>Go somewhere</Button>
+      <Text as='b' mb={2}>Join KredDao</Text>
+      <Text mb={4}>Oversee our validator network</Text>
+      <Button bgColor='#11a3ee' color='white'>Learn More</Button>
     </Box>
   </Flex>
-      </div>
+</div>
+
     </>
   );
 };
