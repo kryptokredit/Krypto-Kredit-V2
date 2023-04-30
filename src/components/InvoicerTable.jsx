@@ -19,7 +19,6 @@ const InvoicerTable = ({ InvoiceJson }) => {
               </Tr>
             </Thead>
             <Tbody>
-<<<<<<< HEAD
   {InvoiceJson ? InvoiceJson.map((invoice) => (
     <Tr key={invoice.id}>
       <Td>{invoice.idInvoice}</Td>
@@ -44,33 +43,6 @@ const InvoicerTable = ({ InvoiceJson }) => {
     </Tr>
   )) : null}
 </Tbody>
-=======
-              {InvoiceJson.map((invoice) => (
-                <Tr key={invoice.id}>
-                  <Td>{invoice.idInvoice}</Td>
-                  <Td>{`${invoice.invoicer.substring(0, 6)}...${invoice.invoicer.substring(
-                    invoice.invoicer.length - 4
-                  )}`}</Td>
-                  <Td>{invoice.amount}</Td>
-                  <Td>{invoice.createdDateMod}</Td>
-                  <Td>{invoice.dueDateMod}</Td>
-                  <Td>{invoice.status}</Td>
-                  <Td>
-                    {1 ? (
-                      <Button size='sm' bgColor='#11a3ee'>
-                        Pay
-                      </Button>
-                    ) : (
-                      <Button size='sm' bgColor='#11a3ee'>
-                        Sign
-                      </Button>
-                    )}
-                  </Td>
-                  {/* <Td>{invoice.status}</Td> */}
-                </Tr>
-              ))}
-            </Tbody>
->>>>>>> origin/main
           </Table>
         </TableContainer>
       </div>
