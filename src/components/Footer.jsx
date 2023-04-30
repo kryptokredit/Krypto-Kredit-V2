@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <>
-      <h2>Test</h2>
+      <h1>Krypto Kredit Initiative</h1>
     </>
   );
 };
