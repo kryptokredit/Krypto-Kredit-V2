@@ -1,3 +1,5 @@
+import styles from "@/styles/Table.module.css";
+
 import { Table, Thead, Tbody, Tr, Th, Td, TableCaption, TableContainer, Button } from "@chakra-ui/react";
 
 const InvoicerTable = ({ InvoiceJson }) => {
@@ -20,7 +22,7 @@ const InvoicerTable = ({ InvoiceJson }) => {
             </Thead>
             <Tbody>
               {InvoiceJson.map((invoice) => (
-                <Tr key={invoice.id}>
+                <Tr className={styles.invoiceRow} key={invoice.id}>
                   <Td>{invoice.idInvoice}</Td>
                   <Td>{`${invoice.invoicer.substring(0, 6)}...${invoice.invoicer.substring(
                     invoice.invoicer.length - 4

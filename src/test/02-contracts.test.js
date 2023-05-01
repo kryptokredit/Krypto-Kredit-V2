@@ -6,7 +6,7 @@ const dotenv = require("dotenv");
 const envPath = path.resolve(__dirname, "../../.env.local");
 dotenv.config({ path: envPath });
 
-const abi_VerifySignature = require("./abi/VerifySignature.json");
+const abi_VerifySignature = require("../abi/VerifySignature.json");
 
 const provider = new ethers.providers.JsonRpcProvider(
   `https://polygon-mumbai.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_ALCHEMY_MUMBAI_API_KEY}`
@@ -19,6 +19,24 @@ describe("VerifySignature Contract", function () {
     // [invoicer, amount, due_date, payer, fee]
     const msgParams = [process.env.PUBLIC_ADDRESS, "1", "35037115", process.env.PUBLIC_ADDRESS, "1"];
     const result = await contract.getMessageHash(...msgParams);
+    assert.equal(result, process.env.EXPECTED_MESSAGE_HASH, "The message hash does not match the expected value.");
+  });
+
+  it("should be equal to expected message hash without verifySignature contract", async function () {
+    // [invoicer, amount, due_date, payer, fee]
+    const _invoicer = process.env.PUBLIC_ADDRESS;
+    const _amount = "1";
+    const _dueDate = "35037115"; // Unix timestamp
+    const _payer = process.env.PUBLIC_ADDRESS;
+    const _id = "1";
+
+    // Encode the values using abi.encodePacked
+    const encodedValues = ethers.utils.solidityPack(
+      ["address", "uint256", "uint256", "address", "uint256"],
+      [_invoicer, _amount, _dueDate, _payer, _id]
+    );
+
+    const result = ethers.utils.keccak256(encodedValues);
     assert.equal(result, process.env.EXPECTED_MESSAGE_HASH, "The message hash does not match the expected value.");
   });
 
