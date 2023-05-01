@@ -24,4 +24,4 @@ function getBlockNumber(date) {
   return blockNumber;
 }
 
-export default { getBlockTimestamp, getBlockNumber };
+export default getBlockTimestamp;
