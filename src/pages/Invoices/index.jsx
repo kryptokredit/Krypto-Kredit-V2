@@ -54,18 +54,18 @@ const InvoiceTabs = () => {
               <TabPanel>{loading ? <div>Loading...</div> : <InvoicerTable InvoiceJson={data} />}</TabPanel>
               <TabPanel>{/* <InvoicerTable InvoiceJson={data} /> */}</TabPanel>
               <TabPanel>
-                {/* {loading ? (
-                <div>Loading...</div>
-              ) : (
-                <InvoicerTable InvoiceJson={data.filter((invoice) => invoice.status === "Unpaid")} />
-              )} */}
+                {loading ? (
+                  <div>Loading...</div>
+                ) : (
+                  <InvoicerTable InvoiceJson={data.filter((invoice) => invoice.status === "Unpaid")} />
+                )}
               </TabPanel>
               <TabPanel>
-                {/* {loading ? (
-                <div>Loading...</div>
-              ) : (
-                <InvoicerTable InvoiceJson={data.filter((invoice) => invoice.status === "Late")} />
-              )} */}
+                {loading ? (
+                  <div>Loading...</div>
+                ) : (
+                  <InvoicerTable InvoiceJson={data.filter((invoice) => invoice.status === "Late")} />
+                )}
               </TabPanel>
               <TabPanel>{/* <InvoicerTable InvoiceJson={data} /> */}</TabPanel>
             </TabPanels>
