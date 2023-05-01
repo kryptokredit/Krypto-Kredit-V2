@@ -33,4 +33,39 @@ describe("Environment and Connection", function () {
     const ethBalance = ethers.utils.formatEther(balance);
     assert.isAbove(Number(ethBalance), 0, "This account does not have a balance");
   });
+
+  it("should connect to subgraphs and pull a non-zero record count", async function () {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("https://api.thegraph.com/subgraphs/name/luiscmogrovejo/factory-graph", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            query: `
+                query {
+                    addressAddeds {
+                        blockNumber
+                        blockTimestamp
+                        id
+                        transactionHash
+                        account
+                      }
+                }
+              `,
+          }),
+        });
+        const { data } = await response.json();
+
+        setData(data.addressAddeds);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+      console.log(data);
+      assert.isDefined(data, "This subgraph has no records");
+    };
+  });
 });
