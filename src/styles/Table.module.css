@@ -1,0 +1,7 @@
+.invoiceRow {
+  border-left: 4px solid #ccc;
+}
+
+.invoiceRow:hover {
+  border-left-color: #11a3ee;
+}
