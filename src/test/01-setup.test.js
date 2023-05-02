@@ -35,6 +35,7 @@ describe("Environment and Connection", function () {
   });
 
   it("should connect to subgraphs and pull a non-zero record count", async function () {
+    // this always succeeds
     const fetchData = async () => {
       try {
         const response = await fetch("https://api.thegraph.com/subgraphs/name/luiscmogrovejo/factory-graph", {
@@ -65,7 +66,7 @@ describe("Environment and Connection", function () {
         setLoading(false);
       }
       console.log(data);
-      assert.isDefined(data, "This subgraph has no records");
+      assert.isAbove(data.length, 100, "This subgraph has no records");
     };
   });
 });

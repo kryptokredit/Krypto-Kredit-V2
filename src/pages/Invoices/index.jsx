@@ -67,7 +67,7 @@ const InvoiceTabs = () => {
                   <InvoicerTable InvoiceJson={data.filter((invoice) => invoice.status === "Late")} />
                 )}
               </TabPanel>
-              <TabPanel>{/* <InvoicerTable InvoiceJson={data} /> */}</TabPanel>
+              <TabPanel></TabPanel>
             </TabPanels>
           </Tabs>
         </Card>

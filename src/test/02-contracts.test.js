@@ -36,8 +36,8 @@ describe("VerifySignature Contract", function () {
       [_invoicer, _amount, _dueDate, _payer, _id]
     );
 
-    const result = ethers.utils.keccak256(encodedValues);
-    assert.equal(result, process.env.EXPECTED_MESSAGE_HASH, "The message hash does not match the expected value.");
+    const message = ethers.utils.keccak256(encodedValues);
+    assert.equal(message, process.env.EXPECTED_MESSAGE_HASH, "The message hash does not match the expected value.");
   });
 
   it("should be equal to the expected signed message hash", async function () {
