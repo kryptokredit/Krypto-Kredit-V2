@@ -10,7 +10,6 @@ import {
   Heading,
   Button,
   Link,
-  Flex,
   Spacer,
 } from "@chakra-ui/react";
 import useInvoiceList from "@/hooks/useInvoiceList";
@@ -19,6 +18,7 @@ import Head from "next/head";
 
 const InvoiceTabs = () => {
   const { data, loading, error } = useInvoiceList();
+
 
   console.log(data);
 
@@ -36,7 +36,7 @@ const InvoiceTabs = () => {
           <Heading size='md' textAlign='center'>
             My Invoices
           </Heading>
-          <Tabs mt={7} width={1000} variant='enclosed'>
+          <Tabs mt={7} variant='enclosed'>
             <TabList>
               <Tab>All</Tab>
               <Tab>Unsigned</Tab>

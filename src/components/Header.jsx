@@ -1,53 +1,4 @@
-// import styles from "@/styles/Header.module.css";
-// import { useState } from 'react';
-// import { Box, Button, ButtonGroup, HStack, Spacer, Stack, Text, Link } from "@chakra-ui/react";
-// import { CustomConnectButton } from "./CustomConnectButton";
 
- 
-
-
-
-// const Header = () => {
-
-
-
-//   return (
-//     <header className={styles.navbar}>
-//     <div className={styles.brand}>
-//       <Link href='/'>
-//         <HStack>
-//           <img className={styles.logo} src='/logo.png' alt='Krypto Kredit logo' />
-//           <Text className={styles.logoText}>Krypto Kredit</Text>
-//         </HStack>
-//       </Link>
-//     </div>
-//       <div className={styles.menu}>
-//         <Link href='#' className='toggleButton'>
-//           <span className='bar'></span>
-//           <span className='bar'></span>
-//           <span className='bar'></span>
-//         </Link>
-//         <ButtonGroup variant='ghost' colorScheme='gray'>
-//           <Link className='navbarLinks' href='/Invoices'>
-//             <Button size='sm'>Invoices</Button>
-//           </Link>
-//           <Link className='navbarLinks' href='/Validators'>
-//             <Button size='sm'>Validators</Button>
-//           </Link>
-//           <Link className='navbarLinks' href='/Profiles'>
-//             <Button size='sm'>Profile</Button>
-//           </Link>
-//           <Link className='navbarLinks' href='/Rolodex'>
-//             <Button size='sm'>Rolodex</Button>
-//           </Link>
-//           <CustomConnectButton />
-//         </ButtonGroup>
-//       </div>
-//     </header>
-//   );
-// };
-
-// export default Header;
  import styles from "@/styles/Header.module.css";
 import { useState } from 'react';
 import { Box, Button, ButtonGroup, HStack, Spacer, Stack, Text, Link} from "@chakra-ui/react";
@@ -80,13 +31,13 @@ const Header = () => {
   </Box>
 
   {/* Collapsed menu */}
-  <Box display={{ base: isMenuOpen ? 'flex' : 'none', md: 'none' }} flexDirection="column">
+  <Box mt="12" display={{ base: isMenuOpen ? 'flex' : 'none', md: 'none' }} flexDirection="column">
     <Box>
       <Button onClick={handleToggleMenu} variant="outline" alignSelf="flex-end">
         <HamburgerIcon />
       </Button>
     </Box>
-    <Stack spacing={4} mt={4}>
+    <Stack spacing={3} mt={20}>
       <Link href='/Invoices'>
         <Button size='sm' w="full">Invoices</Button>
       </Link>

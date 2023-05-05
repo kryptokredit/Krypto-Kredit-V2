@@ -5,3 +5,35 @@
 .invoiceRow:hover {
   border-left-color: #11a3ee;
 }
+
+/* Add these styles to your Table.module.css file */
+.tableContainer {
+  overflow-x: auto; /* Enable horizontal scrolling when table is wider than container */
+}
+
+.table {
+  table-layout: fixed; /* Force table to have fixed width */
+  width: 100%; /* Set table width to 100% */
+}
+
+
+
+/* Set column widths as percentages */
+.idInvoice {
+  width: 5%;
+}
+
+
+.amount {
+  width: 5%;
+}
+
+
+
+.status {
+  width: 5%;
+}
+
+.action {
+  width: 5%;
+}
