@@ -11,14 +11,32 @@ import {
   Button,
   Link,
   Spacer,
+  Text,
 } from "@chakra-ui/react";
 import useInvoiceList from "@/hooks/useInvoiceList";
 import InvoicerTable from "@/components/InvoicerTable";
 import Head from "next/head";
+import {useState, useEffect} from 'react'
+
+
 
 const InvoiceTabs = () => {
   const { data, loading, error } = useInvoiceList();
+  const [showFullButton, setShowFullButton] = useState(true);
+  useEffect(() => {
+    function handleResize() {
+      setShowFullButton(window.innerWidth > 750); 
+    }
 
+    // event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+5
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   console.log(data);
 
@@ -46,7 +64,11 @@ const InvoiceTabs = () => {
               <Spacer />
               <Link href='/Invoices/InvoiceForm'>
                 <Button mb={1} size='md' colorScheme='whatsapp' variant='solid'>
-                  + Create an Invoice
+                {showFullButton ? (
+                    '+ Create an Invoice'
+                  ) : (
+                    <Text truncate>+</Text>
+                  )}
                 </Button>
               </Link>
             </TabList>

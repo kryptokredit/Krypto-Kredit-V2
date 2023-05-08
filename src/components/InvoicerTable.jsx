@@ -4,8 +4,18 @@ import { useState } from "react";
 import InvoiceModal from "./InvoiceModal";
 
 const InvoicerTable = ({ InvoiceJson }) => {
-  const showColumns = useBreakpointValue({ base: ["idInvoice", "amount", "status", "action"], md: ["idInvoice", "invoicer", "amount", "createdDateMod", "dueDateMod", "status", "action"] });
-  const tableWidth = useBreakpointValue({ base: "100%", md: "80%", lg: "60%" });
+  const showColumns = useBreakpointValue({
+    base: ["idInvoice", "amount", "status", "action"],
+    md: ["idInvoice", "invoicer", "amount",  "dueDateMod", "status", "action"],
+    lg: ["idInvoice", "invoicer", "amount", "createdDateMod", "dueDateMod", "status", "action"],
+  });
+  
+  const tableWidth = useBreakpointValue({ base: "100%", md: "80%", lg: "70%"});
+
+
+
+  const [selectedInvoice, setSelectedInvoice] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
  
   const handleRowClick = (invoice) => {
     setSelectedInvoice(invoice);
@@ -62,6 +72,7 @@ const InvoicerTable = ({ InvoiceJson }) => {
 </TableContainer>
 
       </div>
+     
     </>
   );
 };

@@ -6,10 +6,6 @@
   border-left-color: #11a3ee;
 }
 
-/* Add these styles to your Table.module.css file */
-.tableContainer {
-  overflow-x: auto; /* Enable horizontal scrolling when table is wider than container */
-}
 
 .table {
   table-layout: fixed; /* Force table to have fixed width */
