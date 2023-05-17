@@ -10,7 +10,7 @@ const InvoicerTable = ({ InvoiceJson }) => {
     lg: ["idInvoice", "invoicer", "amount", "createdDateMod", "dueDateMod", "status", "action"],
   });
   
-  const tableWidth = useBreakpointValue({ base: "100%", md: "80%", lg: "70%"});
+  const tableWidth = useBreakpointValue({ base: "100%", md: "80%", lg: "100%"});
 
 
 
@@ -25,7 +25,7 @@ const InvoicerTable = ({ InvoiceJson }) => {
   return (
     <>
       <div>
-      <TableContainer>
+      <TableContainer >
   <Table variant='striped' colorScheme='whatsapp' style={{width: tableWidth}}>
     <TableCaption>Invoices</TableCaption>
     <Thead>

@@ -9,27 +9,6 @@
 
 .table {
   table-layout: fixed; /* Force table to have fixed width */
-  width: 100%; /* Set table width to 100% */
+  width: 100%; 
 }
 
-
-
-/* Set column widths as percentages */
-.idInvoice {
-  width: 5%;
-}
-
-
-.amount {
-  width: 5%;
-}
-
-
-
-.status {
-  width: 5%;
-}
-
-.action {
-  width: 5%;
-}
