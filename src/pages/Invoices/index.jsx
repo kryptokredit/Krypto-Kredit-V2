@@ -66,14 +66,17 @@ const InvoiceTabs = () => {
 <TabList mt={2}>
       {isSmallScreen ? (
         
-          <Select mt={2} style={{width: '50%'}} value={selectedOption} onChange={handleSelectChange}>
-        <option value="all">All</option>   
-            <option value="unsigned">Unsigned</option>
-            <option value="unpaid">Unpaid</option>
-            <option value="late">Late</option>
-            <option value="paid">Paid</option>
-          </Select>
-        
+        <div style={{ width: '50%' }}>
+  <Select  value={selectedOption} onChange={handleSelectChange}>
+    <option value="all">All</option>
+    <option value="unsigned">Unsigned</option>
+    <option value="unpaid">Unpaid</option>
+    <option value="late">Late</option>
+    <option value="paid">Paid</option>
+  </Select>
+</div>
+
+
       ) : (
         <>
           <Tab _hover={{ color: 'black', bg: 'green.400' }}>All</Tab>
@@ -87,13 +90,13 @@ const InvoiceTabs = () => {
       <Spacer />
       
       {/* Rest of your code */}
-      <Tab>
+  
         <Link href="/Invoices/InvoiceForm">
           <Button mb={1} size="md" colorScheme="whatsapp" variant="solid">
             {showFullButton ? '+ Create an Invoice' : <Text truncate>+</Text>}
           </Button>
         </Link>
-      </Tab>
+     
     </TabList>
   <TabPanels style={{width: '80vw'}}>
     <TabPanel>
