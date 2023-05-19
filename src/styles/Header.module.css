@@ -30,16 +30,12 @@
 }
 
 @media (max-width: 400px) {
-  .toggleButton {
-    display: flex;
-  }
-
-  .navbarLinks {
-    display: none;
-  }
-
   .navbar {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .navbar > div:not(:first-child) {
+    display: none;
   }
 }
