@@ -1,6 +1,6 @@
 import styles from "@/styles/Header.module.css";
 import { useState } from 'react';
-import { Box, Button, VStack, Link, useDisclosure, Drawer, DrawerBody, DrawerOverlay, DrawerContent, HStack, Text, Stack  } from "@chakra-ui/react";
+import { Box, Button, Spacer, VStack, Link, useDisclosure, Drawer, DrawerBody, DrawerOverlay, DrawerContent, HStack, Text, Stack  } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { CustomConnectButton } from "./CustomConnectButton";
 
@@ -17,6 +17,8 @@ const Header = () => {
           </HStack>
         </Link>
       </div>
+
+      <Spacer />
 
       {/* Collapsed button for small screens */}
       <Box display={{ base: 'block', md: 'none' }}>
