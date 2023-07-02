@@ -39,7 +39,7 @@ const Header = () => {
                 <Link href='/Validators'>
                   <Button size='sm' w="full">Validators</Button>
                 </Link>
-                <Link href='/Profiles'>
+                <Link href='/Profile'>
                   <Button size='sm' w="full">Profile</Button>
                 </Link>
                 <Link href='/Rolodex'>
@@ -61,7 +61,7 @@ const Header = () => {
           <Link href='/Validators'>
             <Button size='sm'>Validators</Button>
           </Link>
-          <Link href='/Profiles'>
+          <Link href='/Profile'>
             <Button size='sm'>Profile</Button>
           </Link>
           <Link href='/Rolodex'>
