@@ -5,3 +5,10 @@
 .invoiceRow:hover {
   border-left-color: #11a3ee;
 }
+
+
+.table {
+  table-layout: fixed; /* Force table to have fixed width */
+  width: 100%; 
+}
+

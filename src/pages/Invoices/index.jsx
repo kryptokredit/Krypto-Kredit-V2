@@ -1,24 +1,33 @@
-import {
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  Box,
-  Card,
-  CardHeader,
-  Heading,
-  Button,
-  Link,
-  Flex,
-  Spacer,
-} from "@chakra-ui/react";
+import { Tabs, TabList, TabPanels, Tab, TabPanel, Card, CardHeader, Heading, } from "@chakra-ui/react";
 import useInvoiceList from "@/hooks/useInvoiceList";
-import InvoicerTable from "@/components/InvoicerTable";
+import InvoicerTab from "@/components/invoicerTab";
+import PayerTab from "@/components/payerTab";
 import Head from "next/head";
+import { useState, useEffect } from 'react';
 
 const InvoiceTabs = () => {
   const { data, loading, error } = useInvoiceList();
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState('');
+  const [showFullButton, setShowFullButton] = useState(true);
+
+  const handleSelectChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 768);
+      setShowFullButton(window.innerWidth > 750);
+    }
+    
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   console.log(data);
 
@@ -32,42 +41,35 @@ const InvoiceTabs = () => {
       </Head>
       <div className='container'>
         <Card margin={10} maxWidth={1000} variant='unstyled'>
-          <CardHeader justifyContent='center'></CardHeader>
+          <CardHeader justifyContent='center' />
           <Heading size='md' textAlign='center'>
             My Invoices
           </Heading>
-          <Tabs mt={7} width={1000} variant='enclosed'>
+          <Tabs variant="soft-rounded" variantColor="green">
             <TabList>
-              <Tab>All</Tab>
-              <Tab>Unsigned</Tab>
-              <Tab>Unpaid</Tab>
-              <Tab>Late</Tab>
-              <Tab>Paid</Tab>
-              <Spacer />
-              <Link href='/Invoices/InvoiceForm'>
-                <Button mb={1} size='md' colorScheme='whatsapp' variant='solid'>
-                  + Create an Invoice
-                </Button>
-              </Link>
+              <Tab>Invoicer</Tab>
+              <Tab>Payer</Tab>
             </TabList>
             <TabPanels>
-              <TabPanel>{loading ? <div>Loading...</div> : <InvoicerTable InvoiceJson={data} />}</TabPanel>
-              <TabPanel>{/* <InvoicerTable InvoiceJson={data} /> */}</TabPanel>
               <TabPanel>
-                {loading ? (
-                  <div>Loading...</div>
-                ) : (
-                  <InvoicerTable InvoiceJson={data.filter((invoice) => invoice.status === "Unpaid")} />
-                )}
+                <InvoicerTab 
+                  isSmallScreen={isSmallScreen}
+                  selectedOption={selectedOption}
+                  handleSelectChange={handleSelectChange}
+                  loading={loading}
+                  data={data}
+                  showFullButton={showFullButton}
+                />
               </TabPanel>
               <TabPanel>
-                {loading ? (
-                  <div>Loading...</div>
-                ) : (
-                  <InvoicerTable InvoiceJson={data.filter((invoice) => invoice.status === "Late")} />
-                )}
+                <PayerTab
+                  isSmallScreen={isSmallScreen}
+                  selectedOption={selectedOption}
+                  handleSelectChange={handleSelectChange}
+                  loading={loading}
+                  data={data}
+                />
               </TabPanel>
-              <TabPanel></TabPanel>
             </TabPanels>
           </Tabs>
         </Card>
